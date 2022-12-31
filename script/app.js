@@ -7,6 +7,7 @@ let forminputEl = document.querySelector("#parent__form__input");
 let item1btnEl = document.querySelector("#item1__btn");
 let parentulEl = document.querySelector("#ul");
 let formEl = document.querySelector(".parent__form");
+let ulEl = document.querySelector(".form__serch");
 cardbtn1El.addEventListener("click",(e)=>{
     e.preventDefault();
     parentEl.style.display = "block"
@@ -17,7 +18,8 @@ cardbtn2El.addEventListener("click",(e)=>{
     parentEl.style.display = "block"
     cardEl.style.display = "none";  
 })
-item2btnEl.addEventListener("click",()=>{
+item2btnEl.addEventListener("click",(e)=>{
+    e.preventDefault();
     parentEl.style.display = "none"
     cardEl.style.display = "block"
 })
@@ -33,3 +35,62 @@ formEl.addEventListener("submit",(e)=>{
 })
 
 
+
+let tasks = [
+    {
+        task:"Hello"
+    },
+    {
+        task:"qwerrtyui"
+    },
+    {
+        task:"opasdfgfg"
+    },
+    {
+        task:"hjklzxzcvbnm"
+    },
+    {
+        task:"Hello World"
+    },
+    {
+        task:"Jou Dou"
+    },
+    {
+        task:"Nilola"
+    },
+    {
+        task:"John"
+    },
+    {
+        task:"Superman"
+    },
+    {
+        task:"Alishe"
+    },
+    {
+        task:"Boxs"
+    },
+]
+ 
+let sortedArr = tasks.sort((a,b) =>{
+    if(a.task.toLowerCase() < b.task.toLowerCase()){
+        return -1
+    }
+    return 1
+})
+console.log(sortedArr);
+forminputEl.addEventListener("input",()=>{
+    let all = [];
+    let inputValue = forminputEl.value.toLowerCase();
+    tasks.forEach(user =>{
+        if(user.task.toLocaleUpperCase().indexOf(inputValue) !== -1){
+            all.push(user.task)
+        }
+    })
+    ulEl.innerHTML = "";
+    all.forEach(k => {
+        const li = document.createElement("li");
+        li.innerHTML = k
+        ulEl.appendChild(li);
+    })
+})
