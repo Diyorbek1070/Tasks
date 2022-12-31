@@ -17,16 +17,19 @@ cardbtn2El.addEventListener("click",(e)=>{
     parentEl.style.display = "block"
     cardEl.style.display = "none";  
 })
-item2btnEl.addEventListener("click",(e)=>{
-    e.preventDefault();
-    parentEl.style.display = "none"
-    cardEl.style.display = "block"
-})
+// item2btnEl.addEventListener("click",(e)=>{
+//     e.preventDefault();
+//     parentEl.style.display = "none"
+//     cardEl.style.display = "block"
+// })
 
 item1btnEl.addEventListener("click",(e)=>{
     e.preventDefault();
      let liEl = document.createElement("li")
+     let imgEl = document.createElement("img");
      parentulEl.appendChild(liEl);
+     liEl.appendChild(imgEl);
+     imgEl.src = "https://cdn-icons.flaticon.com/svg/3917/3917759.svg?token=exp=1672423511~hmac=3bf9eff240e2897dec89da7187467a64";
      liEl.innerHTML = forminputEl.value;
 })
 
