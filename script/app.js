@@ -6,7 +6,7 @@ let item2btnEl = document.querySelector(".item2__btn");
 let forminputEl = document.querySelector("#parent__form__input");
 let item1btnEl = document.querySelector("#item1__btn");
 let parentulEl = document.querySelector("#ul");
-
+let formEl = document.querySelector(".parent__form");
 cardbtn1El.addEventListener("click",(e)=>{
     e.preventDefault();
     parentEl.style.display = "block"
@@ -17,13 +17,12 @@ cardbtn2El.addEventListener("click",(e)=>{
     parentEl.style.display = "block"
     cardEl.style.display = "none";  
 })
-// item2btnEl.addEventListener("click",(e)=>{
-//     e.preventDefault();
-//     parentEl.style.display = "none"
-//     cardEl.style.display = "block"
-// })
+item2btnEl.addEventListener("click",()=>{
+    parentEl.style.display = "none"
+    cardEl.style.display = "block"
+})
 
-item1btnEl.addEventListener("click",(e)=>{
+formEl.addEventListener("submit",(e)=>{
     e.preventDefault();
      let liEl = document.createElement("li")
      let imgEl = document.createElement("img");
